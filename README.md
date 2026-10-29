@@ -1,30 +1,20 @@
-# Just feel with Ahnaf
+# Just feel with Ahnaf — updated mobile version
 
-A mobile-first, black + purple music website starter built with plain HTML, CSS and JavaScript.
-
-## Included
-- Responsive premium landing page and navigation
-- Search for featured playlists and added local tracks
-- Add audio files from your phone/computer (files are not uploaded to a server)
-- Play/pause, previous/next, seek, volume, shuffle
-- Favorites saved locally in this browser
-- Lyrics text saved locally in this browser
-- Light/dark theme toggle
-- Creator credit: Created by Ahnaf — Music Lover & Developer
+## What works
+- Responsive mobile/desktop layout and fixed hero spacing
+- Online track search via Audius public read API, with stream controls where the track is streamable
+- Play/pause, previous/next, shuffle, volume, seek, favorites
+- Local audio upload, theme switch, local lyrics/notes
+- Mood cards search online music instead of being decorative only
 
 ## Important limitations
-- Demo playlist cards are visual placeholders; they do not include commercial songs.
-- Add your own audio files, or music you have permission to use.
-- Login form is a UI preview only. Real accounts and cloud sync require a secure backend (for example, a properly configured Supabase project). Never put secret API keys in frontend code.
-- Local audio files, favorites, and lyrics stay on the current device/browser. They do not sync across devices.
-- Google Fonts needs internet; fallback fonts are included.
+- The open Audius catalog does not contain every commercial song; availability depends on artist uploads and streaming permissions.
+- Login and cloud sync are still demo-only; these need a backend/auth provider.
+- Lyrics are not fetched automatically.
+- This is a static GitHub Pages website; API availability depends on the external service and network.
 
-## Publish from your phone with GitHub
-1. Open github.com in your phone browser and sign in.
-2. Create a new repository named `just-feel-with-ahnaf` (or open your existing repository).
-3. Upload `index.html`, `style.css`, and `script.js` from this folder to the repository root. You can upload files via GitHub's web interface; a ZIP itself is not a published website.
-4. Open the repository's **Settings → Pages**.
-5. Under **Build and deployment**, choose **Deploy from a branch**, select `main` and `/ (root)`, then Save.
-6. Wait for GitHub Pages to publish and open the URL shown in Settings → Pages.
-
-If you want to keep your existing repository, back it up first and do not overwrite files you already need.
+## Deploy from mobile GitHub
+1. Open your repository and go to **Code**.
+2. Replace `index.html`, `style.css`, `script.js`, and `README.md` with the files in this folder.
+3. Commit changes to `main`. GitHub Pages should rebuild automatically.
+4. Refresh your website after a few minutes. If an old version stays, refresh the page or clear the browser cache.

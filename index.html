@@ -1,94 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#08060d">
-  <meta name="description" content="Just feel with Ahnaf — music is a feeling. Discover, play and feel.">
-  <title>Just feel with Ahnaf</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#08060d"><meta name="description" content="Just feel with Ahnaf — discover music and feel the moment.">
+<title>Just feel with Ahnaf</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
-  <header class="topbar">
-    <a class="brand" href="#home" aria-label="Just feel with Ahnaf home">
-      <span class="brand-wave">▂▅▇▅▂</span>
-      <span class="brand-name">Just <i>feel</i><small>with Ahnaf</small></span>
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
-    <nav id="nav">
-      <a class="active" href="#home">Home</a><a href="#discover">Discover</a><a href="#playlists">Playlists</a><a href="#library">Library</a><a href="#profile">Profile</a>
-    </nav>
-    <div class="top-actions">
-      <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Search songs, artists..." aria-label="Search music"></label>
-      <button class="icon-btn" id="themeToggle" title="Switch theme" aria-label="Switch theme">☼</button>
-      <button class="login-btn" id="loginBtn">Login</button>
-    </div>
-  </header>
-
-  <main id="home">
-    <section class="hero">
-      <div class="hero-copy">
-        <span class="eyebrow"><span class="dot"></span> FREE MUSIC <b>•</b> YOUR VIBE</span>
-        <h1>Just <em>feel</em><br>with Ahnaf</h1>
-        <p>Music isn’t just sound, it’s a feeling.<br>Discover. Play. Feel.</p>
-        <div class="hero-actions"><button class="primary-btn" id="enterMusic">▶ <span>Enter Music</span> <b>→</b></button><a href="#playlists" class="text-link">Explore playlists ↗</a></div>
-        <div class="micro-note">✦ Your music. Your mood. Your space.</div>
-      </div>
-      <div class="hero-art" aria-label="Abstract purple music artwork">
-        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
-        <div class="moon"></div><div class="mountain mountain-back"></div><div class="mountain mountain-front"></div>
-        <div class="listener"><div class="head"></div><div class="hair"></div><div class="neck"></div><div class="body"></div><div class="headphones"><span>♫</span></div></div>
-        <div class="water"></div><div class="water-glow"></div>
-        <div class="art-caption">GOOD MUSIC<br><strong>BETTER MOOD</strong></div>
-      </div>
-    </section>
-
-    <section class="content-grid" id="discover">
-      <div class="main-column">
-        <div class="section-heading" id="playlists"><div><span class="section-icon">▥</span><div><h2>Featured Playlists</h2><p>Handpicked moods, just for you.</p></div></div><a href="#library">View all ↗</a></div>
-        <div class="playlist-grid" id="playlistGrid">
-          <article class="playlist-card" data-title="Chill Vibes Relax Ahnaf"><div class="cover cover-city"><span>☾</span></div><div class="card-info"><div><h3>Chill Vibes</h3><p>Relax • 50 songs</p></div><button class="play-card" data-playlist="Chill Vibes" aria-label="Play Chill Vibes">▶</button></div></article>
-          <article class="playlist-card" data-title="Night Drive Mood Ahnaf"><div class="cover cover-drive"><span>↗</span></div><div class="card-info"><div><h3>Night Drive</h3><p>Mood • 45 songs</p></div><button class="play-card" data-playlist="Night Drive" aria-label="Play Night Drive">▶</button></div></article>
-          <article class="playlist-card" data-title="Broken Dreams Feelings"><div class="cover cover-dream"><span>♫</span></div><div class="card-info"><div><h3>Broken Dreams</h3><p>Feelings • 38 songs</p></div><button class="play-card" data-playlist="Broken Dreams" aria-label="Play Broken Dreams">▶</button></div></article>
-          <article class="playlist-card" data-title="Lo-fi Beats Focus"><div class="cover cover-lofi"><span>✿</span></div><div class="card-info"><div><h3>Lo-fi Beats</h3><p>Focus • 62 songs</p></div><button class="play-card" data-playlist="Lo-fi Beats" aria-label="Play Lo-fi Beats">▶</button></div></article>
-          <article class="playlist-card" data-title="All Time Hits Popular"><div class="cover cover-mountain"><span>⌁</span></div><div class="card-info"><div><h3>All Time Hits</h3><p>Popular • 80 songs</p></div><button class="play-card" data-playlist="All Time Hits" aria-label="Play All Time Hits">▶</button></div></article>
-        </div>
-        <section class="library-panel" id="library">
-          <div class="section-heading"><div><span class="section-icon">♫</span><div><h2>Your Library</h2><p>Add audio files you own or have permission to use.</p></div></div></div>
-          <label class="upload-btn">＋ Add your music <input id="audioUpload" type="file" accept="audio/*" multiple hidden></label>
-          <div id="trackList" class="track-list"><p class="empty-state">Your music collection will appear here after you add audio files.</p></div>
-        </section>
-        <section class="lyrics-panel" id="lyrics">
-          <div class="section-heading"><div><span class="section-icon">≋</span><div><h2>Lyrics</h2><p>Your words, your feeling.</p></div></div></div>
-          <p class="lyrics-placeholder">Choose a track and add its lyrics here. Lyrics are not automatically fetched.</p>
-          <textarea id="lyricsInput" placeholder="Paste lyrics you own or are permitted to display..." rows="3"></textarea>
-          <button class="small-btn" id="saveLyrics">Save lyrics on this device</button>
-          <p class="saved-lyrics" id="savedLyrics"></p>
-        </section>
-      </div>
-      <aside class="now-playing">
-        <div class="now-label"><span class="live-dot"></span> NOW PLAYING</div>
-        <div class="record-art"><div class="record"></div><div class="record-cover">♫</div></div>
-        <h3 id="nowTitle">Your next favorite</h3><p id="nowArtist">Add a track to begin</p>
-        <div class="progress-wrap"><span id="currentTime">0:00</span><input type="range" id="seek" min="0" max="100" value="0" aria-label="Seek track"><span id="duration">0:00</span></div>
-        <div class="player-controls"><button id="shuffleBtn" title="Shuffle">⤨</button><button id="prevBtn" title="Previous">|◀</button><button class="play-main" id="playBtn" title="Play or pause">▶</button><button id="nextBtn" title="Next">▶|</button><button id="favoriteBtn" title="Favorite">♡</button></div>
-        <div class="volume-row"><span>VOL</span><input id="volume" type="range" min="0" max="1" step=".01" value=".8" aria-label="Volume"><span id="favoriteCount">♡ 0</span></div>
-        <audio id="audio"></audio>
-        <div class="queue-note">Tip: add MP3 files from your phone to start listening.</div>
-      </aside>
-    </section>
-
-    <section class="profile-strip" id="profile">
-      <div class="profile-avatar">A</div><div class="profile-copy"><strong>Created by <span>Ahnaf</span> ✦</strong><small>Music Lover &amp; Developer</small></div>
-      <blockquote>“Music is a small escape into a world of feelings.” <span>💜</span></blockquote>
-      <div class="feature-pills"><span>♬<small>Free access</small></span><span>☁<small>Local library</small></span><span>◐<small>Custom themes</small></span></div>
-    </section>
-  </main>
-
-  <div class="toast" id="toast" role="status"></div>
-  <dialog id="loginDialog"><form method="dialog" class="dialog-card"><button class="dialog-close" aria-label="Close">×</button><span class="dialog-logo">♫</span><h2>Welcome back</h2><p>Login is a preview for now. Secure account login and cloud sync need a backend service.</p><input type="email" placeholder="Email address" disabled><input type="password" placeholder="Password" disabled><button class="primary-btn" type="button" id="loginInfo">Got it</button></form></dialog>
-  <footer>JUST FEEL WITH AHNAF <span>•</span> Made with ♡ and music</footer>
-  <script src="script.js"></script>
-</body>
-</html>
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+<header class="topbar"><a class="brand" href="#home"><span class="brand-wave">▂▅▇▅▂</span><span class="brand-name">Just <i>feel</i><small>with Ahnaf</small></span></a><button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button><nav id="nav"><a class="active" href="#home">Home</a><a href="#discover">Discover</a><a href="#playlists">Playlists</a><a href="#online">Online Music</a><a href="#profile">Profile</a></nav><div class="top-actions"><form class="search" id="searchForm"><span>⌕</span><input id="searchInput" type="search" placeholder="Search songs or artists" aria-label="Search online songs"><button type="submit" aria-label="Search">↵</button></form><button class="icon-btn" id="themeToggle" aria-label="Switch theme">☼</button><button class="login-btn" id="loginBtn">Login</button></div></header>
+<main id="home"><section class="hero"><div class="hero-copy"><span class="eyebrow"><span class="dot"></span> MUSIC FOR EVERY MOOD <b>•</b> YOUR SPACE</span><h1>Just <em>feel</em><br>with Ahnaf</h1><p>Music isn’t just sound, it’s a feeling.<br>Discover. Play. Feel.</p><div class="hero-actions"><button class="primary-btn" id="enterMusic">▶ <span>Enter Music</span> <b>→</b></button><a href="#playlists" class="text-link">Explore moods ↗</a></div><div class="micro-note">✦ Your music. Your mood. Your space.</div></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="moon"></div><div class="mountain mountain-back"></div><div class="mountain mountain-front"></div><div class="listener"><div class="head"></div><div class="hair"></div><div class="neck"></div><div class="body"></div><div class="headphones"><span>♫</span></div></div><div class="water"></div><div class="water-glow"></div><div class="art-caption">GOOD MUSIC<br><strong>BETTER MOOD</strong></div></div></section>
+<section class="online-panel" id="online"><div class="section-heading"><div><span class="section-icon">⌕</span><div><h2>Discover online music</h2><p>Search and stream tracks available on Audius.</p></div></div><span class="source-pill">OPEN MUSIC</span></div><form id="onlineSearchForm" class="online-search"><input id="onlineSearchInput" type="search" placeholder="Try: lo-fi, chill, Arijit, night drive…" aria-label="Search online music"><button class="primary-btn" type="submit">Search music</button></form><p class="search-status" id="searchStatus">Search to find music from the open Audius catalog. Availability depends on each artist’s uploads.</p><div class="online-results" id="onlineResults"></div></section>
+<section class="section-block" id="discover"><div class="section-heading" id="playlists"><div><span class="section-icon">▥</span><div><h2>Featured Playlists</h2><p>Pick a mood to discover music.</p></div></div><a href="#online">Search tracks ↗</a></div><div class="playlist-grid" id="playlistGrid"><button class="playlist-card" data-query="chill lofi" data-title="Chill Vibes Relax"><div class="cover cover-city"><span>☾</span></div><div class="card-info"><div><h3>Chill Vibes</h3><p>Relax • mellow sounds</p></div><span class="play-card">▶</span></div></button><button class="playlist-card" data-query="night drive synthwave" data-title="Night Drive Mood"><div class="cover cover-drive"><span>↗</span></div><div class="card-info"><div><h3>Night Drive</h3><p>Late night • synth</p></div><span class="play-card">▶</span></div></button><button class="playlist-card" data-query="sad emotional" data-title="Broken Dreams"><div class="cover cover-dream"><span>♫</span></div><div class="card-info"><div><h3>Broken Dreams</h3><p>Feelings • emotional</p></div><span class="play-card">▶</span></div></button><button class="playlist-card" data-query="lofi beats study" data-title="Lo-fi Beats Focus"><div class="cover cover-lofi"><span>✿</span></div><div class="card-info"><div><h3>Lo-fi Beats</h3><p>Focus • study</p></div><span class="play-card">▶</span></div></button><button class="playlist-card" data-query="electronic popular" data-title="All Time Hits"><div class="cover cover-mountain"><span>⌁</span></div><div class="card-info"><div><h3>Fresh Finds</h3><p>Discover • new sounds</p></div><span class="play-card">▶</span></div></button></div></section>
+<section class="player-library-grid"><section class="library-panel" id="library"><div class="section-heading"><div><span class="section-icon">♫</span><div><h2>Your Library</h2><p>Add audio files you own or have permission to use.</p></div></div></div><label class="upload-btn">＋ Add your music <input id="audioUpload" type="file" accept="audio/*" multiple hidden></label><div id="trackList" class="track-list"><p class="empty-state">Your added music will appear here.</p></div></section><aside class="now-playing"><div class="now-label"><span class="live-dot"></span> NOW PLAYING</div><div class="record-art"><div class="record"></div><img id="nowCover" class="record-cover" alt="Album artwork" src=""></div><h3 id="nowTitle">Your next favorite</h3><p id="nowArtist">Search online music or add a track</p><div class="progress-wrap"><span id="currentTime">0:00</span><input type="range" id="seek" min="0" max="100" value="0" aria-label="Seek track"><span id="duration">0:00</span></div><div class="player-controls"><button id="shuffleBtn" title="Shuffle">⤨</button><button id="prevBtn" title="Previous">|◀</button><button class="play-main" id="playBtn" title="Play or pause">▶</button><button id="nextBtn" title="Next">▶|</button><button id="favoriteBtn" title="Favorite">♡</button></div><div class="volume-row"><span>VOL</span><input id="volume" type="range" min="0" max="1" step=".01" value=".8" aria-label="Volume"><span id="favoriteCount">♡ 0</span></div><audio id="audio" preload="none"></audio><p class="queue-note">Online tracks are streamed from Audius. Some catalog tracks may be unavailable.</p></aside></section>
+<section class="lyrics-panel" id="lyrics"><div class="section-heading"><div><span class="section-icon">≋</span><div><h2>Lyrics & Notes</h2><p>Save your own notes or lyrics you have permission to use.</p></div></div></div><textarea id="lyricsInput" placeholder="Write or paste lyrics you are allowed to use…" rows="3"></textarea><button class="small-btn" id="saveLyrics">Save on this device</button><p class="saved-lyrics" id="savedLyrics"></p></section>
+<section class="profile-strip" id="profile"><div class="profile-avatar">A</div><div class="profile-copy"><strong>Created by <span>Ahnaf</span> ✦</strong><small>Music Lover &amp; Developer</small></div><blockquote>“Music is a small escape into a world of feelings.” <span>💜</span></blockquote><div class="feature-pills"><span>♬<small>Free access</small></span><span>☁<small>Local library</small></span><span>◐<small>Custom themes</small></span></div></section></main>
+<div class="toast" id="toast" role="status"></div><dialog id="loginDialog"><form method="dialog" class="dialog-card"><button class="dialog-close" aria-label="Close">×</button><span class="dialog-logo">♫</span><h2>Welcome back</h2><p>Login and cloud sync are not active yet. They need a secure backend service.</p><button class="primary-btn" type="submit">Got it</button></form></dialog><footer>JUST FEEL WITH AHNAF <span>•</span> Music discovery powered by <a href="https://audius.co" target="_blank" rel="noreferrer">Audius</a> <span>•</span> Made with ♡</footer><script src="script.js"></script></body></html>

@@ -1,20 +1,9 @@
-# Just feel with Ahnaf — updated mobile version
+# Just Feel with Ahnaf — Ultra Edition
 
-## What works
-- Responsive mobile/desktop layout and fixed hero spacing
-- Online track search via Audius public read API, with stream controls where the track is streamable
-- Play/pause, previous/next, shuffle, volume, seek, favorites
-- Local audio upload, theme switch, local lyrics/notes
-- Mood cards search online music instead of being decorative only
+Multi-page responsive static website for GitHub Pages.
 
-## Important limitations
-- The open Audius catalog does not contain every commercial song; availability depends on artist uploads and streaming permissions.
-- Login and cloud sync are still demo-only; these need a backend/auth provider.
-- Lyrics are not fetched automatically.
-- This is a static GitHub Pages website; API availability depends on the external service and network.
+Pages: Home (`index.html`), Explore (`explore.html`), Player (`player.html`), Playlists (`playlists.html`), Favorites (`favorites.html`), Lyrics & notes (`lyrics.html`), Creator profile (`profile.html`), Settings (`settings.html`).
 
-## Deploy from mobile GitHub
-1. Open your repository and go to **Code**.
-2. Replace `index.html`, `style.css`, `script.js`, and `README.md` with the files in this folder.
-3. Commit changes to `main`. GitHub Pages should rebuild automatically.
-4. Refresh your website after a few minutes. If an old version stays, refresh the page or clear the browser cache.
+Upload every file in this folder to the root of your existing GitHub repository, keeping filenames unchanged. Commit the changes and wait for GitHub Pages to publish.
+
+Music search uses the public Audius discovery API, so catalog and stream availability vary. Favorites, playlists, notes, and theme are saved only in this browser. Real login/cloud sync requires a secure backend. Local audio is not uploaded.

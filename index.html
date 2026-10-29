@@ -1,5 +1,80 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090711"><title>Home — Just Feel with Ahnaf</title><link rel="stylesheet" href="style.css"></head><body data-page="index"><div class="shell"><aside><a class="brand" href="index.html"><span class="logo">♫</span><span>just feel<small>WITH AHNAF</small></span></a><p class="side-label">YOUR MUSIC UNIVERSE</p><a class="nav active" href="index.html"><span>⌂</span>Home</a><a class="nav " href="explore.html"><span>⌕</span>Explore music</a><a class="nav " href="player.html"><span>♫</span>Music player</a><a class="nav " href="playlists.html"><span>▤</span>Playlists</a><a class="nav " href="favorites.html"><span>♡</span>Favorites</a><a class="nav " href="lyrics.html"><span>≋</span>Lyrics & notes</a><a class="nav " href="profile.html"><span>◉</span>Creator profile</a><a class="nav " href="settings.html"><span>⚙</span>Settings</a><div class="side-note">“Some feelings sound better.”<small>A little universe by Ahnaf ✦</small></div></aside><main><header><span>YOUR MUSIC UNIVERSE <i>/</i> HOME</span><a class="avatar" href="profile.html">A</a></header><section class="intro"><p class="eyebrow">✦ JUST FOR YOUR FEELINGS</p><h1>Feel something.<br><em>Play something.</em></h1><p class="lead">A premium little universe for every mood, memory, and moment.</p></section>
-<section class="hero"><div><p class="eyebrow">✦ YOUR PERSONAL SOUNDSPACE</p><h1>Feel something.<br><em>Play something.</em></h1><p class="lead">A place for every mood, every memory, every version of you.</p><a class="btn" href="explore.html">Explore music ↗</a> <a class="btn ghost" href="player.html">Open player ▶</a></div><div class="art"><span>✦</span><div class="sun"></div><b>JFA <small>VOL. 01</small></b></div></section>
-<section><p class="eyebrow">PICK YOUR FEELING</p><h2>What’s your mood?</h2><div class="grid four"><a class="tile" href="explore.html?q=lofi%20chill">☾<b>Late night</b><small>Quiet thoughts & soft sounds</small></a><a class="tile" href="explore.html?q=ambient%20focus">⌁<b>Deep focus</b><small>Get in your own zone</small></a><a class="tile" href="explore.html?q=romantic%20indie">♡<b>In my feels</b><small>For the heart-heavy days</small></a><a class="tile" href="explore.html?q=upbeat%20pop">✷<b>Need energy</b><small>Turn the volume up</small></a></div></section>
-<section><p class="eyebrow">YOUR SHORTCUTS</p><h2>Make this space yours</h2><div class="grid three"><a class="tile" href="playlists.html">▤<b>Playlists</b><small>Create collections for your moods.</small></a><a class="tile" href="favorites.html">♡<b>Favorites</b><small>Keep the songs that stay with you.</small></a><a class="tile" href="lyrics.html">≋<b>Lyrics & notes</b><small>Save your own words and thoughts.</small></a></div></section>
-<footer>© 2026 JUST FEEL WITH AHNAF <span>MADE FOR THE FEELING ✦</span></footer></main></div><div class="dock"><div class="dock-title"><span class="cover">♫</span><span><b id="dock-title">Nothing playing yet</b><small id="dock-artist">Choose a song to begin</small></span></div><div class="dock-controls"><button id="dock-prev">|◀</button><button id="dock-play" class="play">▶</button><button id="dock-next">▶|</button></div><a href="player.html">OPEN PLAYER ↗</a></div><audio id="audio"></audio><div id="toast"></div><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090810">
+  <meta name="description" content="A premium personal music space by Ahnaf. Discover sounds by mood, collect favorites, create playlists and save thoughts.">
+  <meta property="og:title" content="Home — Just Feel with Ahnaf">
+  <meta property="og:description" content="A premium personal music space by Ahnaf. Discover sounds by mood, collect favorites, create playlists and save thoughts.">
+  <meta property="og:type" content="website">
+  <title>Home — Just Feel with Ahnaf</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="index">
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Just Feel home"><span class="brand-mark">♫</span><span class="brand-name">just feel<small>WITH AHNAF</small></span></a>
+      <p class="side-label">YOUR SOUNDSPACE</p>
+      <nav class="side-nav"><a class="nav-link active" href="index.html" aria-current=page><span class="nav-icon">⌂</span><span>Home</span></a><a class="nav-link " href="explore.html" ><span class="nav-icon">⌕</span><span>Explore music</span></a><a class="nav-link " href="player.html" ><span class="nav-icon">♫</span><span>Music player</span></a><a class="nav-link " href="playlists.html" ><span class="nav-icon">▤</span><span>Playlists</span></a><a class="nav-link " href="favorites.html" ><span class="nav-icon">♡</span><span>Favorites</span></a><a class="nav-link " href="lyrics.html" ><span class="nav-icon">≋</span><span>Lyrics & notes</span></a><a class="nav-link " href="profile.html" ><span class="nav-icon">◉</span><span>Creator profile</span></a><a class="nav-link " href="settings.html" ><span class="nav-icon">⚙</span><span>Settings</span></a></nav>
+      <div class="sidebar-card"><div class="mini-wave" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:23px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:18px"></i><i style="height:12px"></i><i style="height:21px"></i><i style="height:9px"></i><i style="height:16px"></i></div><strong>A little room to feel.</strong><p>Your mood. Your memories. Your music.</p><a class="text-link" href="explore.html">Find your next sound ↗</a></div>
+      <div class="side-quote">“Some feelings sound better.”<small>A little universe by Ahnaf ✦</small></div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="breadcrumb"><span>YOUR SOUNDSPACE</span><span class="spark">✦</span><b>HOME</b></div>
+        <div class="top-actions"><a class="icon-btn" href="explore.html" aria-label="Search music" title="Explore music">⌕</a><a class="avatar" href="profile.html" aria-label="Creator profile">A</a></div>
+      </header>
+      <div class="page-content">
+<section class="hero-home">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="dot"></span> A LITTLE MUSIC. A LOT OF FEELING.</p>
+    <h1>Feel something.<br><span class="gradient">Find your sound.</span></h1>
+    <p class="lead">A softer corner of the internet for every mood, memory, late-night thought and version of you. Come as you are. Press play.</p>
+    <div class="hero-actions"><a class="btn" href="explore.html">Discover your next song <span class="arrow">↗</span></a><a class="btn secondary" href="player.html">Enter the player <span class="arrow">▷</span></a></div>
+    <div class="hero-meta"><span><b>✦</b> MADE FOR YOUR MOOD</span><span><b>◌</b> YOUR OWN LITTLE UNIVERSE</span></div>
+  </div>
+  <div class="hero-art-wrap" aria-label="Abstract Just Feel album artwork">
+    <span class="orbit-dot"></span>
+    <div class="album-art"><span class="album-star">✦</span><div class="album-sun"></div><div class="album-title"><span>JUST FEEL</span><small>VOL. 001</small></div><span class="art-caption">A SOUNDTRACK FOR YOU</span></div>
+    <div class="floating-chip chip-one"><span class="chip-icon">♫</span><span>Made for the moment<small>your feeling, your frequency</small></span></div>
+    <div class="floating-chip chip-two"><span class="chip-icon">♡</span><span>Keep what stays<small>save songs that feel like you</small></span></div>
+  </div>
+</section>
+<section class="section reveal">
+  <div class="section-head"><div><p class="eyebrow">PICK YOUR FEELING</p><h2>What’s your mood <span class="gradient">today?</span></h2><p>No labels. No rules. Just a feeling and a sound.</p></div><a class="text-link" href="explore.html">All sounds ↗</a></div>
+  <div class="mood-grid">
+    <a class="mood-card" style="--mood:#b9a1ff" href="explore.html?q=late%20night%20lofi"><span class="mood-icon">☾</span><span class="card-arrow">↗</span><b>Late night</b><small>Quiet thoughts &amp; soft sounds</small></a>
+    <a class="mood-card" style="--mood:#83dce9" href="explore.html?q=ambient%20focus"><span class="mood-icon">⌁</span><span class="card-arrow">↗</span><b>Deep focus</b><small>Get lost in your own zone</small></a>
+    <a class="mood-card" style="--mood:#f28ed4" href="explore.html?q=romantic%20indie"><span class="mood-icon">♡</span><span class="card-arrow">↗</span><b>In my feels</b><small>For the heart-heavy days</small></a>
+    <a class="mood-card" style="--mood:#ffbb91" href="explore.html?q=upbeat%20pop"><span class="mood-icon">✳</span><span class="card-arrow">↗</span><b>Need energy</b><small>Turn the volume into joy</small></a>
+  </div>
+</section>
+<section class="section reveal delay-1">
+  <div class="section-head"><div><p class="eyebrow">YOUR SPACE, YOUR RULES</p><h2>Make this space <span class="gradient">yours.</span></h2></div></div>
+  <div class="feature-grid">
+    <article class="feature-card"><div class="feature-icon">▤</div><h3>Collect the moments.</h3><p>Build little playlists for the nights, the long rides, the almosts and the finallys.</p><a class="text-link" href="playlists.html">Create a playlist ↗</a></article>
+    <article class="feature-card"><div class="feature-icon">≋</div><h3>Leave a note for later.</h3><p>Keep a lyric, a thought, or a line that sounds exactly like how you feel.</p><a class="text-link" href="lyrics.html">Open your notes ↗</a></article>
+  </div>
+</section>
+<section class="section reveal delay-2">
+  <div class="section-head"><div><p class="eyebrow">YOUR LITTLE RITUAL</p><h2>One feeling away from play.</h2><p>Search the music universe or pick up where your heart left off.</p></div></div>
+  <div class="panel" style="display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap"><div><span class="pill"><span class="live-dot"></span> MUSIC DISCOVERY</span><h3 style="margin:12px 0 5px">Your next favorite is out there.</h3><p class="muted small" style="margin:0">Explore independent sounds through the Audius discovery catalog.</p></div><a class="btn" href="explore.html">Let’s explore <span class="arrow">↗</span></a></div>
+</section>
+        <footer class="footer"><span>© 2026 <b>JUST FEEL WITH AHNAF</b></span><span>MADE FOR THE FEELING ✦</span></footer>
+      </div>
+    </main>
+  </div>
+  <nav class="mobile-nav" aria-label="Mobile navigation"><a class="active" href="index.html" aria-current=page><span>⌂</span>Home</a><a class="" href="explore.html" ><span>⌕</span>Explore</a><a class="" href="player.html" ><span>♫</span>Player</a><a class="" href="playlists.html" ><span>▤</span>Playlists</a><a class="" href="favorites.html" ><span>♡</span>Saved</a></nav>
+  <div class="player-dock" aria-label="Mini music player">
+    <div class="dock-now"><div class="dock-cover" id="dock-cover">♫</div><div class="dock-meta"><b id="dock-title">Nothing playing yet</b><small id="dock-artist">Choose a song to begin</small></div></div>
+    <div class="dock-controls"><button class="icon-btn" id="dock-prev" type="button" aria-label="Previous track" title="Previous">|‹</button><button class="icon-btn dock-play" id="dock-play" type="button" aria-label="Play" title="Play or pause">▶</button><button class="icon-btn" id="dock-next" type="button" aria-label="Next track" title="Next">›|</button></div>
+    <div class="dock-right"><input class="dock-seek" id="dock-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek through track"><a class="dock-open" href="player.html">OPEN PLAYER ↗</a></div>
+  </div>
+  <audio id="audio" preload="metadata"></audio>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,9 +1,26 @@
-# Just Feel with Ahnaf — Ultra Edition
+# Just Feel with Ahnaf — Premium Edition
 
-Multi-page responsive static website for GitHub Pages.
+A responsive, multi-page static music experience designed for GitHub Pages.
 
-Pages: Home (`index.html`), Explore (`explore.html`), Player (`player.html`), Playlists (`playlists.html`), Favorites (`favorites.html`), Lyrics & notes (`lyrics.html`), Creator profile (`profile.html`), Settings (`settings.html`).
+## Pages
+- `index.html` — cinematic home and mood shortcuts
+- `explore.html` — online music discovery via the public Audius discovery API
+- `player.html` — player controls and local audio-file playback
+- `playlists.html` — locally saved playlists
+- `favorites.html` — saved favorite tracks
+- `lyrics.html` — private lyric ideas and notes
+- `profile.html` — creator profile
+- `settings.html` — theme, accent colors, motion, and local-data controls
 
-Upload every file in this folder to the root of your existing GitHub repository, keeping filenames unchanged. Commit the changes and wait for GitHub Pages to publish.
+## Publish on GitHub Pages
+1. Download and extract the ZIP.
+2. Open your repository: https://github.com/ahnaftahmidx/Just-feel-with-Ahnaf
+3. Upload/replace the files in the repository root. Keep the HTML filenames, `style.css`, and `app.js` together.
+4. Commit the changes to the branch and folder configured in **Settings → Pages**. Wait for GitHub Pages to publish the commit.
 
-Music search uses the public Audius discovery API, so catalog and stream availability vary. Favorites, playlists, notes, and theme are saved only in this browser. Real login/cloud sync requires a secure backend. Local audio is not uploaded.
+## Notes
+- This site is plain HTML/CSS/JavaScript; no build step is required.
+- Online search uses Audius public discovery endpoints; results and stream availability can vary.
+- Favorites, playlists, notes, and settings are saved in local browser storage. They do not sync between devices and are not a secure user account.
+- Local audio files are played in the browser and are not uploaded. For privacy, local files are temporary to the current page session and cannot be shared across pages after refresh.
+- The web fonts are loaded from Google Fonts when available; local fallbacks are included.

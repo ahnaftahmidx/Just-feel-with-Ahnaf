@@ -113,17 +113,43 @@
       const duration = $('#duration'); if (duration) duration.textContent = formatTime(current?.duration);
     }
   }
+  let streamAttempt = 0;
+  function streamCandidates(track) {
+    const id = encodeURIComponent(track.id);
+    const appName = 'JustFeelWithAhnaf';
+    const candidates = [
+      track.stream,
+      track.url,
+      `https://discoveryprovider.audius.co/v1/tracks/${id}/stream?app_name=${appName}`,
+      `https://api.audius.co/v1/tracks/${id}/stream?app_name=${appName}`
+    ].filter(Boolean);
+    return [...new Set(candidates)];
+  }
+  function startStreamAttempt(index) {
+    if (!audio || !current) return;
+    const candidates = streamCandidates(current);
+    if (index >= candidates.length) {
+      toast('This track cannot be streamed right now. Try another track or upload an audio file from your device.');
+      paintPlayer(); return;
+    }
+    streamAttempt = index;
+    audio.src = candidates[index];
+    audio.load();
+    audio.play().then(() => {
+      paintPlayer();
+      toast('Now playing · ' + (current.title || 'your track'));
+    }).catch(() => {
+      if (index + 1 < candidates.length) startStreamAttempt(index + 1);
+      else { paintPlayer(); toast('Playback was blocked or this track is unavailable. Try another track.'); }
+    });
+  }
   function playTrack(track) {
     if (!track) return;
-    const stream = track.stream || track.url;
-    if (!stream) { toast('This track does not have a playable audio stream.'); return; }
+    if (!track.id && !(track.stream || track.url)) { toast('This track does not have a playable audio stream.'); return; }
     current = track;
     catalog.set(String(track.id), track);
     if (!queue.some(t => String(t.id) === String(track.id))) queue.unshift(track);
-    if (audio) {
-      if (audio.src !== stream) { audio.src = stream; audio.load(); }
-      audio.play().then(() => { paintPlayer(); toast('Now playing · ' + (track.title || 'your track')); }).catch(() => { paintPlayer(); toast('Tap play again or try another track.'); });
-    }
+    if (audio) startStreamAttempt(0);
     persist(); paintPlayer();
   }
   function togglePlay() {
@@ -151,7 +177,8 @@
     if (existing) { const active = favorites.some(t => String(t.id) === String(track.id)); existing.textContent = active ? '♥' : '♡'; existing.setAttribute('aria-label', active ? 'Remove from favorites' : 'Add to favorites'); }
   }
   function normalizeTrack(item) {
-    return {id:String(item.id),title:item.title || item.name || 'Untitled track',artist:item.user?.name || item.artist || 'Unknown artist',artwork:item.artwork?.['480x480'] || item.artwork?.['150x150'] || item.artwork || '',duration:Number(item.duration) || 0,stream:item.stream || `https://discoveryprovider.audius.co/v1/tracks/${encodeURIComponent(item.id)}/stream?app_name=JustFeelWithAhnaf`,permalink:item.permalink || ''};
+    const id = String(item.id);
+    return {id,title:item.title || item.name || 'Untitled track',artist:item.user?.name || item.artist || 'Unknown artist',artwork:item.artwork?.['480x480'] || item.artwork?.['150x150'] || item.artwork || '',duration:Number(item.duration) || 0,stream:item.stream || `https://discoveryprovider.audius.co/v1/tracks/${encodeURIComponent(id)}/stream?app_name=JustFeelWithAhnaf`,permalink:item.permalink || ''};
   }
   async function searchMusic(query) {
     const results = $('#results'), status = $('#status');
@@ -161,9 +188,18 @@
     status.textContent = `Finding a sound for “${q}”…`;
     results.innerHTML = '<div class="empty-state"><span class="empty-icon">◌</span>Listening across the music universe…</div>';
     try {
-      const response = await fetch(`https://discoveryprovider.audius.co/v1/tracks/search?query=${encodeURIComponent(q)}&limit=25&app_name=JustFeelWithAhnaf`);
-      if (!response.ok) throw new Error('Search service unavailable');
-      const payload = await response.json();
+      const params = `?query=${encodeURIComponent(q)}&limit=25&app_name=JustFeelWithAhnaf`;
+      let payload = null;
+      let lastError = null;
+      for (const host of ['https://discoveryprovider.audius.co/v1', 'https://api.audius.co/v1']) {
+        try {
+          const response = await fetch(`${host}/tracks/search${params}`);
+          if (!response.ok) throw new Error(`Audius returned ${response.status}`);
+          payload = await response.json();
+          if (payload && Array.isArray(payload.data)) break;
+        } catch (error) { lastError = error; }
+      }
+      if (!payload || !Array.isArray(payload.data)) throw lastError || new Error('Search service unavailable');
       const tracks = (payload.data || []).filter(t => t && t.id != null).map(normalizeTrack);
       tracks.forEach(track => catalog.set(String(track.id), track));
       if (!tracks.length) { status.textContent = `No tracks found for “${q}”. Try another phrase.`; results.innerHTML = emptyState('☾','A quiet corner of the universe','Try “lofi”, “indie”, “ambient”, or another artist.'); return; }
@@ -194,7 +230,18 @@
     audio.addEventListener('play', paintPlayer);
     audio.addEventListener('pause', paintPlayer);
     audio.addEventListener('ended', () => adjacent(1));
-    audio.addEventListener('error', () => { if (current) toast('This stream is unavailable. Try a different track.'); });
+    audio.addEventListener('error', () => {
+      if (!current) return;
+      const candidates = streamCandidates(current);
+      if (streamAttempt + 1 < candidates.length) {
+        const next = streamAttempt + 1;
+        toast('Trying another music stream…');
+        startStreamAttempt(next);
+      } else {
+        paintPlayer();
+        toast('This stream is unavailable. Search another version or use Add local music.');
+      }
+    });
   }
   $('#dock-play')?.addEventListener('click', togglePlay);
   $('#dock-prev')?.addEventListener('click', () => adjacent(-1));
@@ -277,4 +324,26 @@
     const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }), {threshold:.08});
     revealItems.forEach(el => observer.observe(el));
   } else revealItems.forEach(el => el.classList.add('is-visible'));
+})();
+
+
+/* First-visit 3D welcome intro: once per browser tab session, with a skip control. */
+(() => {
+  const intro = document.getElementById('welcome-intro');
+  if (!intro) return;
+  let alreadySeen = false;
+  try { alreadySeen = sessionStorage.getItem('justFeelIntroSeen') === '1'; } catch (_) {}
+  const finish = () => {
+    if (intro.classList.contains('is-leaving')) return;
+    intro.classList.add('is-leaving');
+    try { sessionStorage.setItem('justFeelIntroSeen', '1'); } catch (_) {}
+    window.setTimeout(() => intro.remove(), 950);
+  };
+  const skip = document.getElementById('intro-skip');
+  if (skip) skip.addEventListener('click', finish);
+  if (alreadySeen || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    intro.remove();
+  } else {
+    window.setTimeout(finish, 4400);
+  }
 })();
